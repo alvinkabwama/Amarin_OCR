@@ -2,6 +2,7 @@ import requests
 import gridExtraction
 import imghdr
 import time
+import json
 
 prev_state = 0
 download_delay = 5
@@ -34,10 +35,36 @@ def statusactive(status, resp):
     
             headerdict, resultlist = gridExtraction.imageCharacterExtracter(image_path)
     
+    
+            print('Printing headers1')
+            print(headerdict['organisation'])
+            print(headerdict['activity'])
+            print(headerdict['venue'])
+            print(headerdict['date'])
+            
+            
             send_data = {'resultList': resultlist,
                          'headerDict': headerdict,
                          'id': image_id}
-            requests.post(request_url, data=send_data)
+            
+            
+            print('Printing header2')
+            print(send_data['headerDict']['organisation'])
+            print(send_data['headerDict']['activity'])
+            print(send_data['headerDict']['venue'])
+            print(send_data['headerDict']['date'])
+            
+            
+            print('Printing data')
+            
+            for n in range(4):
+                print(send_data['resultList'][n]['name'])
+                print(send_data['resultList'][n]['phone'])
+                print(send_data['resultList'][n]['location'])
+            
+            
+            
+            requests.post(request_url, data=json.dumps(send_data))
     
     elif status == 204:
         print(resp.get("message"))

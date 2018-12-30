@@ -284,8 +284,11 @@ def imageCharacterExtracter(path):
     df = pd.DataFrame(jsonlist)
     
     df.to_csv('data.csv', index=True)
-    
+        
     return headerdictionary, jsonlist
+    
+
+    
 
 
 #imageCharacterExtracter('images/py.jpg')  
