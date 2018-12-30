@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      AMARIN FINANCINAL 
+    </head>
+    <body >
+    
+        <h1 class = "text-center"> 
+            SELECT THE FILE AND CLICK UPLOAD
+        </h1>
+
+                  
+        <form method="post" id="reused_form" action= "/extract"  >
+        
+             <div class="file-upload">
+                 <!--<label for="file">File: </label>--> 
+                 <input type="file" id="file" name="imagename"/>
+             </div>
+
+                
+                {%csrf_token%}
+            <button type="submit" id="Submit">Post It! &rarr;</button>
+        </form>               
+    </body>
+</html>
