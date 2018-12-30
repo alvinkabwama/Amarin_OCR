@@ -35,6 +35,37 @@
                     AMARIN FINANCIAL OCR EXTRACTER
                 </h1>
                 
+                
+                
+                    <table class="table table-striped table-edits">
+                    		<thead>
+                				<tr>
+                					  <th >ORGANISATION </th>
+                                 <th >ACTIVITY</th>
+                                 <th >VENUE</th>
+                                 <th >DATE</th>
+                    
+                				</tr>
+                			</thead>
+                				<tbody>
+                               <tr >
+                                   <td>{{ headerdict.organisation }}</td>
+                                   <td>{{ headerdict.activity }}</td>
+                                   <td>{{ headerdict.venue }}</td>
+                                   <td>{{ headerdict.date }}</td>
+                			    </tr>                              								
+                				</tbody>
+                		 </table>
+                		
+                		 
+                		 <p>
+                		 
+                		 </p>
+                		 
+                		 <p>
+                		 
+                		 </p>
+                
                 		<table class="table table-striped table-edits">
                     		<thead>
                 				<tr>
@@ -45,11 +76,11 @@
                 				</tr>
                 			</thead>
                 				<tbody>
-                                  {%for data in resultlist %}
+                                  {% for data in resultlist %}
                                <tr >
-                    				    <td>{{resultlist[data][name]}}</td>
-                                   <td>{{resultlist[data][number]}}</td>
-                                   <td>{{resultlist[data][location]}}</td>
+                                   <td>{{ data.name }}</td>
+                                   <td>{{ data.number }}</td>
+                                   <td>{{ data.location }}</td>
                 			    </tr>              
                                   {% endfor %}
                 								
