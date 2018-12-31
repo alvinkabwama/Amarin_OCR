@@ -35,19 +35,22 @@ def statusactive(status, resp):
     
             headerdict, resultlist = gridExtraction.imageCharacterExtracter(image_path)
     
-    
+            send_data = {'resultList': resultlist,
+                         'headerDict': headerdict,
+                         'id': image_id}
+            
+            '''
             print('Printing headers1')
             print(headerdict['organisation'])
             print(headerdict['activity'])
             print(headerdict['venue'])
             print(headerdict['date'])
+            '''
             
             
-            send_data = {'resultList': resultlist,
-                         'headerDict': headerdict,
-                         'id': image_id}
             
             
+            '''
             print('Printing header2')
             print(send_data['headerDict']['organisation'])
             print(send_data['headerDict']['activity'])
@@ -61,10 +64,13 @@ def statusactive(status, resp):
                 print(send_data['resultList'][n]['name'])
                 print(send_data['resultList'][n]['phone'])
                 print(send_data['resultList'][n]['location'])
-            
-            
-            
-            requests.post(request_url, data=json.dumps(send_data))
+                print(" ")
+                
+            '''
+                
+            headers = {'Content-type': 'application/json'}
+                        
+            requests.post(request_url, json=send_data, headers=headers)
     
     elif status == 204:
         print(resp.get("message"))
