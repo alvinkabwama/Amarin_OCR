@@ -6,6 +6,7 @@ import operator
 import plotly.offline as py
 py.init_notebook_mode(connected=True)
 import tesserExtractionimport
+import digitRecogimport
 import re
 
 
@@ -27,11 +28,11 @@ inforatio6 = 3.75/total
 
 #DISPLAYING IMAGES 
 def image_show(header, image):
-    '''
+    
     cv2.imshow(header, image)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
-    '''
+    
     
     
 
@@ -260,9 +261,13 @@ def imageCharacterExtracter(path):
         numberimage = testimage[y_cordinatefirst+threshold:y_cordinatesecond-ythreshold, x_cordinate3+threshold:x_cordinate4-threshold]
         title = 'Cropped_phone_number'
         image_show(title, numberimage)
-        number = tesserExtractionimport.tesserpredict(numberimage,state = True)
-        number = numberclean(number)
+        cv2.imwrite('images/numbertemp.jpg', numberimage)
+        numberfile = 'images/numbertemp.jpg'
         
+        if(count is 3):
+            number_model = digitRecogimport.train()
+        number = digitRecogimport.predict(number_model, numberfile)       
+        number = numberclean(number)
     
         #EXTRACTING THE LOCATION
         locationimage = testimage[y_cordinatefirst+threshold:y_cordinatesecond-ythreshold, x_cordinate4+threshold:x_cordinate5-threshold]
@@ -284,14 +289,11 @@ def imageCharacterExtracter(path):
     df = pd.DataFrame(jsonlist)
     
     df.to_csv('data.csv', index=True)
-        
+    
     return headerdictionary, jsonlist
-    
-
-    
 
 
-#imageCharacterExtracter('images/py.jpg')  
+#imageCharacterExtracter('images/py1.jpg')  
 
  
 

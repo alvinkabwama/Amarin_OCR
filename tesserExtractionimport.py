@@ -89,7 +89,7 @@ def tesserpredict(img, state):
         cv2.imwrite('images/temp.png', img)
         tempimg = Image.open('images/temp.png')  
         text = tesserocr.image_to_text(tempimg)
-    print(text)
+    #print(text)
     return text
 
 '''
