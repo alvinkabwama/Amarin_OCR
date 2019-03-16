@@ -119,7 +119,7 @@ def proc_user_img(img_file, model):
     blank_image.fill(255)
 
     imgray = cv2.cvtColor(im,cv2.COLOR_BGR2GRAY)
-    plt.imshow(imgray)
+    #plt.imshow(imgray)
     kernel = np.ones((5,5),np.uint8)
     
     ret,thresh = cv2.threshold(imgray,127,255,0)   
@@ -151,7 +151,7 @@ def proc_user_img(img_file, model):
     
     
     #print(strg)
-    plt.imshow(im)
+    #plt.imshow(im)
     cv2.imwrite("images/original_overlay.png",im) 
     cv2.imwrite("images/final_digits.png",blank_image) 
     cv2.destroyAllWindows() 
@@ -221,8 +221,8 @@ def train():
     #digits, labels = load_digits(TRAIN_MNIST_IMG) #original MNIST data (not good detection)
     digits, labels = load_digits_custom(TRAIN_USER_IMG) #my handwritten dataset (better than MNIST on my handwritten digits)
     
-    print('train data shape',digits.shape)
-    print('test data shape',labels.shape)
+    #print('train data shape',digits.shape)
+    #print('test data shape',labels.shape)
     
     digits, labels = shuffle(digits, labels, random_state=256)
     train_digits_data = pixels_to_hog_20(digits)
