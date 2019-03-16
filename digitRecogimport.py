@@ -10,11 +10,11 @@ import numpy as np
 from scipy.misc.pilutil import imresize
 import cv2 #version 3.2.0
 from skimage.feature import hog
-from matplotlib import pyplot as plt
+#from matplotlib import pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 from sklearn.utils import shuffle
-from sklearn.externals import joblib
+#from sklearn.externals import joblib
 
 
 DIGIT_WIDTH = 10 
@@ -171,7 +171,7 @@ def load_digits_custom(img_file):
     start_class = 1
     im = cv2.imread(img_file)
     imgray = cv2.cvtColor(im,cv2.COLOR_BGR2GRAY)
-    plt.imshow(imgray)
+    #plt.imshow(imgray)
     kernel = np.ones((5,5),np.uint8)
     
     ret,thresh = cv2.threshold(imgray,127,255,0)   
