@@ -28,11 +28,11 @@ inforatio6 = 3.75/total
 
 #DISPLAYING IMAGES 
 def image_show(header, image):
-    
+    '''
     cv2.imshow(header, image)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
-    
+    '''
     
     
 

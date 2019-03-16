@@ -2,7 +2,7 @@ import requests
 import gridExtraction
 import imghdr
 import time
-import json
+
 
 prev_state = 0
 download_delay = 5
